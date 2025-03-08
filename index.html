@@ -10,6 +10,8 @@
             text-align: center;
             background-color: #f0f0f0;
             color: #333;
+            overflow: hidden; /* Impede a barra de rolagem */
+            position: relative;
         }
         img {
             max-width: 80%;
@@ -18,6 +20,27 @@
         }
         h1 {
             color: #FF6347;
+        }
+
+        /* Estilo dos corações */
+        .coracao {
+            position: absolute;
+            font-size: 2em;
+            color: red;
+            opacity: 0.8;
+            animation: subir 4s linear infinite;
+        }
+
+        /* Animação para os corações subirem */
+        @keyframes subir {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
         }
     </style>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -31,10 +54,32 @@
     <p id="dias"></p>
 
     <script>
+        // Cálculo do tempo juntos
         const dataInicio = new Date('2019-06-08'); 
         const hoje = new Date();
         const dias = Math.floor((hoje - dataInicio) / (1000 * 60 * 60 * 24));
         document.getElementById('dias').innerText = dias.toLocaleString() + ' dias!';
+
+        // Função para criar corações subindo
+        function criarCoracao() {
+            const coracao = document.createElement('div');
+            coracao.classList.add('coracao');
+            coracao.innerHTML = '❤️';
+            document.body.appendChild(coracao);
+
+            // Posição aleatória na tela
+            coracao.style.left = Math.random() * 100 + 'vw';
+            coracao.style.animationDuration = (Math.random() * 2 + 3) + 's'; // Entre 3 e 5 segundos
+            coracao.style.opacity = Math.random();
+
+            // Remove o coração após a animação
+            setTimeout(() => {
+                coracao.remove();
+            }, 5000);
+        }
+
+        // Criar corações continuamente
+        setInterval(criarCoracao, 500);
     </script>
 </body>
 </html>
