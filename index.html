@@ -10,6 +10,7 @@
             text-align: center;
             background-color: #f0f0f0;
             color: #333;
+            overflow: hidden; /* Evita que a animação ultrapasse os limites da tela */
         }
         img {
             max-width: 80%;
@@ -19,16 +20,70 @@
         h1 {
             color: #FF6347;
         }
+
+        /* Estilo do coração */
+        .coracao {
+            position: absolute;
+            font-size: 3em;
+            color: red;
+            animation: subir 3s infinite;
+        }
+
+        /* Animação de subir o coração */
+        @keyframes subir {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px); /* O coração sobe 100px */
+            }
+        }
+
+        /* Estilo de gerar corações aleatórios */
+        .coracao:nth-child(1) {
+            left: 10%;
+            animation-duration: 4s;
+            animation-delay: 0s;
+        }
+        .coracao:nth-child(2) {
+            left: 30%;
+            animation-duration: 5s;
+            animation-delay: 1s;
+        }
+        .coracao:nth-child(3) {
+            left: 50%;
+            animation-duration: 6s;
+            animation-delay: 2s;
+        }
+        .coracao:nth-child(4) {
+            left: 70%;
+            animation-duration: 4.5s;
+            animation-delay: 1.5s;
+        }
+        .coracao:nth-child(5) {
+            left: 90%;
+            animation-duration: 5.5s;
+            animation-delay: 0.5s;
+        }
     </style>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <h1>Te amo um montão, Gab</h1>
     <p>Estamos juntos desde: <strong>08/06/2019</strong></p>
-    <img src="https://github.com/jilovegano/te-amo-gab/blob/main/teamoaa.jpeg" alt="teamoaa.jpeg">
+    <!-- Atualize a imagem com o link direto do GitHub -->
+    <img src="https://raw.githubusercontent.com/jilovegano/te-amo-gab/main/teamoaa.jpeg" alt="Foto nossa">
     
     <h2>Já estamos juntos há:</h2>
     <p id="dias"></p>
+
+    <!-- Corpos dos corações -->
+    <div class="coracao">❤️</div>
+    <div class="coracao">❤️</div>
+    <div class="coracao">❤️</div>
+    <div class="coracao">❤️</div>
+    <div class="coracao">❤️</div>
 
     <script>
         const dataInicio = new Date('2019-06-08'); 
