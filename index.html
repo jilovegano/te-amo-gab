@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te amo um montão, Gab</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        img {
+            max-width: 80%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        h1 {
+            color: #FF6347;
+        }
+    </style>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h1>Te amo um montão, Gab</h1>
+    <p>Estamos juntos desde: <strong>08/06/2019</strong></p>
+    <img src="sua_foto.jpg" alt="teamoaa.jpeg">
+    
+    <h2>Já estamos juntos há:</h2>
+    <p id="dias"></p>
+
+    <script>
+        const dataInicio = new Date('2019-06-08'); 
+        const hoje = new Date();
+        const dias = Math.floor((hoje - dataInicio) / (1000 * 60 * 60 * 24));
+        document.getElementById('dias').innerText = dias.toLocaleString() + ' dias!';
+    </script>
+</body>
+</html>
